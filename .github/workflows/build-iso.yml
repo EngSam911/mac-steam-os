@@ -1,0 +1,25 @@
+name: Build ISO
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/build-iso.yml'
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build ISO
+        uses: blue-build/github-action@v1
+        with:
+          recipe: recipe.yml
+          build_iso: true
+          push: false
