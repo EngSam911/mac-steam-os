@@ -1,11 +1,6 @@
 name: Build ISO
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/build-iso.yml'
 jobs:
   build-iso:
     runs-on: ubuntu-latest
@@ -23,3 +18,4 @@ jobs:
           recipe: recipe.yml
           build_iso: true
           push: false
+          upload_results: true
