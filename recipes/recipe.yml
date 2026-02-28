@@ -1,15 +1,11 @@
 # This is your custom MacBook Air 2014 build
 name: my-mac-bazzite
 description: Bazzite with Broadcom drivers for MacBook Air 2014
-
 # We are using the Bazzite-Deck base (Steam Deck UI)
 base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: stable
-
 modules:
   - type: rpm-ostree
     install:
       - broadcom-sta-dkms
-      - akmod-wl
-      - kernel-devel
       - xorg-x11-drv-intel
