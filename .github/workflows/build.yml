@@ -1,6 +1,9 @@
 name: Build Custom Image
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 jobs:
   bluebuild:
     name: Build Custom Image
@@ -14,4 +17,6 @@ jobs:
         uses: blue-build/github-action@v1
         with:
           recipe: recipe.yml
+          cosign_private_key: ""
+          registry_token: ${{ github.token }}
           push: false
